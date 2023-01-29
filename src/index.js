@@ -10,6 +10,7 @@ const app = express();
 require("./config/viewEngine")(app);
 
 app.use(express.static("src/public"));
+app.use(express.urlencoded({ extended: false }));
 app.use(routes);
 
 app.listen(config.PORT, () =>

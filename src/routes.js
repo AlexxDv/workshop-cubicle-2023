@@ -11,5 +11,6 @@ router.get("/create", cubeController.getCreateCube);
 //     res.render("create");
 // });
 
+router.post('/create', cubeController.postCreateCube)
 
 module.exports = router;
