@@ -5,7 +5,7 @@ const cubeSchema = new Schema({
         type: String,
         required: true,
     },
-    describtion: {
+    description: {
         type: String,
         required: true,
         maxLength: 50,
@@ -23,6 +23,6 @@ const cubeSchema = new Schema({
     }
 })
 
-const Cube = model('Cube', cubeSchema)
+const Cube = model('Cube', cubeSchema) // "Cube" е името, което даваме на модела
 
 module.exports = Cube;
