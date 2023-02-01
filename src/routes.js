@@ -14,6 +14,8 @@ router.get('/create', cubeController.getCreateCube)
 router.post('/create', cubeController.postCreateCube)
 router.get('/details/:cubeId', cubeController.getDetails);
 
+router.get('/cubes/:cubeId/attach', cubeController.getAttachAccessory)
+
 // Друг начин за подаване на заявка ( "use" взима само началото на пътя ./accessories)
 router.use("/accessory", accessoryControler)
 
