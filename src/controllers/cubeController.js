@@ -16,7 +16,7 @@ exports.postCreateCube = async (req, res) => {
 };
 
 exports.getDetails = async (req, res) => {
-    const cube = await Cube.findById(req.params.id).lean();
+    const cube = await Cube.findById(req.params.cubeId).lean();
 
     
     if (!cube) {
