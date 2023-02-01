@@ -22,6 +22,6 @@ exports.getDetails = async (req, res) => {
     if (!cube) {
         return res.redirect("/404");
     }
-
+    
     res.render("details", { cube });
 }
