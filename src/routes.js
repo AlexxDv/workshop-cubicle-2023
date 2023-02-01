@@ -12,9 +12,10 @@ router.get('/404', homeController.getErrorPage);
 // });
 router.get('/create', cubeController.getCreateCube)
 router.post('/create', cubeController.postCreateCube)
-router.get('/details/:cubeId', cubeController.getDetails);
+router.get('/cubes/:cubeId/details/', cubeController.getDetails);
 
 router.get('/cubes/:cubeId/attach', cubeController.getAttachAccessory)
+router.post('/cubes/:cubeId/attach', cubeController.postAttachAccessory)
 
 // Друг начин за подаване на заявка ( "use" взима само началото на пътя ./accessories)
 router.use("/accessory", accessoryControler)
