@@ -1,11 +1,11 @@
 const Cube = require('../models/Cube')
-
+const db = require('../db.json');
 
 
 exports.getHomePage = async (req, res) => {
     const { search, from: difficultyFrom, to: difficultyTo } = req.query;
 
-    let cubes = await Cube.find()
+    let cubes = await Cube.find().lean()
 
     if (search) {
         cubes = cubes.filter(c => c.name.toLowerCase().includes(search.toLowerCase()))
@@ -25,4 +25,8 @@ exports.getHomePage = async (req, res) => {
 
 exports.getAboutPage = (req, res) => {
     res.render("about");
+};
+
+exports.getErrorPage = (req, res) => {
+    res.render("404");
 };

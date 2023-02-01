@@ -1,11 +1,11 @@
 const handlebars = require("express-handlebars");
 
-function setupVievEngine(app) {
+function setupViewEngine(app) {
     app.engine("hbs", handlebars.engine({
-    extname: "hbs"
-}));
-app.set("view engine", "hbs");
-app.set("views", "./src/views");
+        extname: "hbs"
+    }));
+    app.set("view engine", "hbs");
+    app.set("views", "./src/views");
 }
 
-module.exports = setupVievEngine
+module.exports = setupViewEngine
