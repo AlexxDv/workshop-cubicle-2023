@@ -7,3 +7,13 @@ exports.getUserByUserName =  (username) => {
 exports.register =  (username, password) => {
     return User.create({ username, password })
 }
+
+exports.login = (username, password) => {
+    const  user = this.getUserByUserName(username)
+
+    if(!user) {
+        throw "Invalid username or password"
+    }
+
+    
+}
