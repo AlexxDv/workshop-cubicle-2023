@@ -1,19 +1,22 @@
 const User = require('../models/User')
 
-exports.getUserByUserName =  (username) => {
+exports.getUserByUserName = (username) => {
     return User.findOne({ username })
 }
 
-exports.register =  (username, password) => {
+exports.register = (username, password) => {
     return User.create({ username, password })
 }
 
-exports.login = (username, password) => {
-    const  user = this.getUserByUserName(username)
+exports.login = async (username, password) => {
+    const user = await this.getUserByUserName(username)
 
-    if(!user) {
-        throw "Invalid username or password"
+    const isValid = await user.validatePassword(password)
+
+    if (!user || !isValid) {
+        throw "Invalid username or password";
     }
 
-    
+    return user;
+
 }
