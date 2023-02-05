@@ -51,8 +51,13 @@ header ul li a {
 header ul li a:hover {
     cursor: pointer;
     text-decoration: underline;
+    color: antiquewhite ;
 }
-
+header ul li {
+    display: inline-block;
+    vertical-align: middle;
+    color: burlywood;
+}
 main {
     margin: 0 4em;
     border-radius: 15px;
