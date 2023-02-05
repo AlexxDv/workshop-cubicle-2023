@@ -51,7 +51,7 @@ exports.getEditCube = async (req, res) => {
 }
 exports.postEditCube = async (req, res) => {
     const { name, description, imageUrl, difficultyLevel } = req.body;
-    
+
     await cubeService.update(req.params.cubeId, {
         name,
         description,
@@ -67,4 +67,10 @@ exports.getDeleteCube = async (req, res) => {
     const difficultyLevels = cubeUtils.generateDifficultyLevels(cube.difficultyLevel)
 
     res.render('cube/delete', { cube, difficultyLevels });
+}
+
+exports.postDeleteCube = async (req, res) => {
+    await cubeService.delete(req.params.cubeId)
+
+    res.redirect(`/`)
 }
