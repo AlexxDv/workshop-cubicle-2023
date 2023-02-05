@@ -31,7 +31,11 @@ const cubeSchema = new Schema({
     accessories: [{
         type: Types.ObjectId,
         ref: 'Accessory',
-    }]
+    }],
+    owner: {
+        type: Types.ObjectId,
+        ref: "User",
+    }
 })
 
 const Cube = model('Cube', cubeSchema) // "Cube" е името, което даваме на модела
