@@ -27,15 +27,19 @@ router.post("/register", async (req, res, next) => {
     const { username, password, repeatPassword } = req.body;
 
     if (password !== repeatPassword) {
-    //    return next(new Error("Passwords don't match"));
-    return res.render("auth/register", { error: "Passwords don't match" });
-
+        //    return next(new Error("Passwords don't match"));
+        return res.render("auth/register", { error: "Passwords don't match" });
     }
 
-    const existingUser = await authService.getUserByUserName(username);
-
     if (existingUser) {
-        return res.redirect("/404");
+        return res.render("auth/register", { error: "User already exists" });
+    }
+
+    try {
+        const existingUser = await authService.getUserByUserName(username);
+    } catch (err) {
+        return next(err);
+
     }
 
     const user = await authService.register(username, password);
